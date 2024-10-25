@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script> <!-- 항상 최신 버전의 api 사용. -->
+
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+
+        <h1 class="mt-4">글 수정</h1>
+        <form action="/totoscoop/modify" method="post">
+            <!-- 페이지 번호 -->
+            <input type="hidden" name="page" th:value="${requestDTO.page}">
+            <input type="hidden" name="type" th:value="${requestDTO.type}">
+            <input type="hidden" name="keyword" th:value="${requestDTO.keyword}">
+            <div class="form-group">
+                <label>글번호</label>
+                <input type="text" class="form-control" name="bno" th:value="${dto.bno}" readonly>
+            </div>
+            <div class="form-group">
+                <label>제목</label>
+                <input type="text" class="form-control" name="title" th:value="${dto.title}">
+            </div>
+            <div class="form-group">
+                <label>내용</label>
+                <textarea class="form-control" rows="5" name="content">[[${dto.content}]]</textarea>
+            </div>
+            <div class="form-group">
+                <label>작성자</label>
+                <input type="text" class="form-control" name="writer" th:value="${dto.writerName}" readonly>
+            </div>
+            <div class="form-group">
+                <label>등록일시</label>
+                <input type="text" class="form-control" name="regDate" th:value="${dto.regDate}" readonly>
+            </div>
+            <div class="form-group">
+                <label>수정일시</label>
+                <input type="text" class="form-control" name="modDate" th:value="${dto.modDate}" readonly>
+            </div>
+        </form>
+
+        <!-- 하이퍼링크로 하는 것은 GetMapping -->
+        <button type="button" class="btn btn-primary modifyBtn">수정</button>
+
+        <button type="button" class="btn btn-info form-group listBtn">목록</button>
+        <!-- 하이퍼링크로 하는 것은 GetMapping -->
+        <button type="button" class="btn btn-danger removeBtn">삭제</button>
+    </th:block>
+</th:block>
+
+<script th:inline="javascript">
+    let actionForm = $("form");
+    $(".removeBtn").click(function() {
+        actionForm
+            .attr("action", "/totoscoop/remove")
+            .attr("method", "post")
+            .submit();
+    });
+
+    $(".modifyBtn").click(function() {
+        actionForm
+            .attr("action", "/totoscoop/modify")
+            .attr("method", "post")
+            .submit();
+    })
+
+    $(".listBtn").click(function() {
+        var page = $("input[name='page']");
+        var type = $("input[name='type']");
+        var keyword = $("input[name='keyword']");
+
+        actionForm.empty();
+
+        actionForm.append(page);
+        actionForm.append(type);
+        actionForm.append(keyword);
+
+        actionForm
+            .attr("action", "/totoscoop/list")
+            .attr("method", "get")
+            .submit();
+    })
+</script>
+</html>

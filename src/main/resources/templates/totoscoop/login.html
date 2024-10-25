@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#toggleBtn").click(function () {
+                $(".information").slideToggle();
+            });
+        });
+    </script>
+    <style>
+        body {
+            margin: 0 auto; width: 800px;
+        }
+
+        /* header */
+        .header {
+            width: 800px; height: 175px;
+        }
+        .header div.top_menu {
+            text-align: right;
+            margin: 5px 0;
+        }
+        .header div.top_menu a {
+            text-decoration: none;
+            color: black;
+        }
+        .header div.top_menu a:hover {
+            color: rgb(0, 169, 0);
+        }
+        .header div.title {
+            width: 800px;
+            height: 150px;
+        }
+
+        /* main */
+        #main {
+            height: 540px;
+        }
+        
+        .login_page {
+            float: left;
+            width: 310px; height: 200px;
+            margin: 110px 130px 90px 240px;
+        }
+        #username {
+            display: inline-block;
+            width: 180px; height: 25px;
+            margin: 10px;
+        }
+        #password {
+            display: inline-block;
+            width: 180px; height: 25px;
+            margin: 10px;
+        }
+        #login {
+            float: right;
+            width: 80px; height: 80px;
+            margin: 10px;
+        }
+        #id_save {
+            display: inline-block;
+            margin: 0 0 0 10px;
+        }
+        .find {
+            text-align: center;
+        }
+        .find a {
+            text-decoration: none;
+            color: black;
+        }
+        .find a:hover {
+            color:rgb(0, 169, 0);
+        }
+        #find_id {
+            display: inline-block;
+            
+        }
+        #find_pwd {
+            display: inline-block;
+        }
+
+        /* footer */
+        #toggleBtn {
+            display: inline-block;
+            margin-left: 350px;
+            background: rgb(0, 94, 0);
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        #toggleBtn:hover {
+            background: rgb(0, 94, 0);
+            color: white;
+            border: 2px solid rgb(0, 0, 0);
+        }
+        .footer .information {
+            display: none;
+            height: 80px;
+            line-height: 20px;
+            border-radius: 10px;
+            background: #28b025;
+            background: linear-gradient(270deg,#28b025 0%, #238623 80%);
+            background: -webkit-linear-gradient(270deg,#28b025 0%, #238623 80%);
+            background: -moz-linear-gradient(270deg,#28b025 0%, #238623 80%);
+            color: black;
+            padding: 10px;
+        }
+        .footer div.information {
+            text-align: center;
+            font-size: 13px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="top_menu">
+            <a href="registration">회원가입</a> | <a href="login">로그인</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
+        </div>
+        <div class="title">
+            <a href="main_page"><img src="/Logo&Menu_imgs/logo.jpg"></a>
+            <a href="main_page"><img src="/Logo&Menu_imgs/title.jpg"></a>
+        </div>
+    </div>
+    <hr>
+
+    <!-- main -->
+    <main id="main">
+        <div class="login_page">
+            <hr>
+            <h2 style="text-align: center;">MEMBER LOGIN</h2>
+            <form>
+                <div><input type="submit" id="login" value="Login"></div>
+                <div><input type="text" id="username" name="username" required placeholder="ID"></div>
+                <div><input type="password" id="password" name="password" required placeholder="PASSWORD"></div>
+                <div><input type="checkbox" id="id_save"><label for="id_save"> 아이디 저장</label></div>
+                <br>
+                <div class="find">
+                    <div id="find_id"><a href="#">아이디 찾기</a></div>
+                    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <div id="find_pwd"><a href="#">비밀번호 찾기</a></div>
+                </div>
+            </form>
+            <br>
+            <hr>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <hr>
+    <div class="footer">
+        <button id="toggleBtn">농장 세부정보</button>
+        <div class="information">
+            상점명 | (주)토토네닭장&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 | 7777-7777
+            <br>
+            주소 | 강원도 원주시 귀래면
+            <br>
+            사업자등록번호 | 123-45-67890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;통신판매업 신고 | 2023-원주시-7777
+            <br>
+            대표 | 이기섭
+        </div>
+    </div>
+</body>
+</html>

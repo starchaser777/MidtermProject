@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#toggleBtn").click(function () {
+                $(".information").slideToggle();
+            });
+        });
+        
+        $(document).ready(function () {
+            var path = window.location.pathname;
+            var currentPage = path.split("/").pop();
+            
+            $('#left_nav a[href="' + currentPage + '"]').addClass('active');
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".mySlideDiv").not(".active").hide();
+            
+            setInterval(nextSlide, 4000);
+        });
+        
+        function prevSlide() {
+            $(".mySlideDiv").hide();
+            var allSlide = $(".mySlideDiv");
+            var currentIndex = 0;
+            
+            $(".mySlideDiv").each(function(index,item){ 
+                if($(this).hasClass("active")) {
+                    currentIndex = index;
+                }
+            });
+            
+            var newIndex = 0;
+            
+            if(currentIndex <= 0) {
+                newIndex = allSlide.length-1;
+            } else {
+                newIndex = currentIndex-1;
+            }
+        
+            $(".mySlideDiv").removeClass("active");
+            
+            $(".mySlideDiv").eq(newIndex).addClass("active");
+            $(".mySlideDiv").eq(newIndex).show();
+        }
+        
+        function nextSlide() {
+            $(".mySlideDiv").hide();
+            var allSlide = $(".mySlideDiv");
+            var currentIndex = 0;
+            
+            $(".mySlideDiv").each(function(index,item){
+                if($(this).hasClass("active")) {
+                    currentIndex = index;
+                }
+                
+            });
+            
+            var newIndex = 0;
+            
+            if(currentIndex >= allSlide.length-1) {
+                newIndex = 0;
+            } else {
+                newIndex = currentIndex+1;
+            }
+        
+            $(".mySlideDiv").removeClass("active");
+            $(".mySlideDiv").eq(newIndex).addClass("active");
+            $(".mySlideDiv").eq(newIndex).show();      
+        }
+        </script>
+    <style>
+        #left_nav .active {
+            background-color: rgb(0, 94, 0);
+            border-radius: 10%;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .slideshow-container {
+            display: inline-block;
+            max-width: 500px;
+            position: relative;
+            margin: auto;
+            margin-left: 80px;
+        }
+
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;	
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+    </style>
+    <style>
+        body {
+            margin: 0 auto; width: 800px;
+        }
+
+        /* header */
+        .header {
+            width: 800px; height: 175px;
+        }
+        .header div.top_menu {
+            text-align: right;
+            margin: 5px 0;
+        }
+        .header div.top_menu a {
+            text-decoration: none;
+            color: black;
+        }
+        .header div.top_menu a:hover {
+            color: rgb(0, 169, 0);
+        }
+        .header div.title {
+            width: 800px;
+            height: 150px;
+        }
+
+        /* main */
+        #main {
+            height: 1130px;
+        }
+        #left_nav {
+            float: left;
+            width: 200px;   height: 1110px;
+            margin: 10px;
+            border-radius: 20px;
+            background: #ffffff;
+            background: linear-gradient(90deg,#ffffff 0%, #3dd33d 150%);
+            background: -webkit-linear-gradient(90deg,#ffffff 0%, #3dd33d 150%);
+            background: -moz-linear-gradient(90deg,#ffffff 0%, #3dd33d 150%);
+            box-shadow: 0px 0px 5px 3px rgba(134,134,134,0.8);
+            -webkit-box-shadow: 0px 0px 5px 3px rgba(134,134,134,0.8);
+            -moz-box-shadow: 0px 0px 5px 3px rgba(134,134,134,0.8);
+        }
+        #left_nav ul li {
+            display: inline-block;
+            list-style: none;
+            line-height: 60px;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .side_list {
+            text-decoration: none;
+            display: block;
+            width: 150px;
+            color: darkgreen;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .side_list:hover {
+            color: blue;
+        }
+
+        /* about us 내용 */
+        .farm > img {
+            float: left;
+            width: 500px; height: 225px;
+            margin: 0 20px 20px 0;
+        }
+
+        .toto > img {
+            float: left;
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            margin: 0 20px 20px 0;
+        }
+        .cheongsun > img {
+            float: right;
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            margin: 0 20px 20px 0;
+        }
+        .esmeralda > img {
+            float: left;
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            margin: 0 20px 20px 0;
+        }
+
+        /* footer */
+        #toggleBtn {
+            display: inline-block;
+            margin-left: 350px;
+            background: rgb(0, 94, 0);
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        #toggleBtn:hover {
+            background: rgb(0, 94, 0);
+            color: white;
+            border: 2px solid rgb(0, 0, 0);
+        }
+        .footer .information {
+            display: none;
+            height: 80px;
+            line-height: 20px;
+            border-radius: 10px;
+            background: #28b025;
+            background: linear-gradient(270deg,#28b025 0%, #238623 80%);
+            background: -webkit-linear-gradient(270deg,#28b025 0%, #238623 80%);
+            background: -moz-linear-gradient(270deg,#28b025 0%, #238623 80%);
+            color: black;
+            padding: 10px;
+        }
+        .footer div.information {
+            text-align: center;
+            font-size: 13px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="top_menu">
+            <a href="registration">회원가입</a> | <a href="login">로그인</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
+        </div>
+        <div class="title">
+            <a href="main_page"><img src="/Logo&Menu_imgs/logo.jpg"></a>
+            <a href="main_page"><img src="/Logo&Menu_imgs/title.jpg"></a>
+        </div>
+    </div>
+    <hr>
+
+    <!-- main -->
+    <main id="main">
+        <div id="left_nav">
+            <ul>
+                <li><h1 style="width: 120px; color: rgb(4, 42, 21);">Menu</h1></li>
+                <br>
+                <li><a class="side_list" href="about_us">About us</a></li>
+                <br>
+                <hr>
+                <li><a class="side_list" href="list">공지사항</a></li>
+                <br>
+                <hr>
+                <li><a class="side_list" href="shop">SHOP</a></li>
+                <br>
+                <hr>
+                <li><a class="side_list" href="#">달걀 정기구독</a></li>
+                <br>
+                <hr>
+                <li><a class="side_list" href="contact">Contact</a></li>
+            </ul>
+        </div>
+        <br>
+        <h2 style="background-color: rgb(246, 246, 135); display: inline-block;"><b><i><ins>About the Coop</ins></i></b></h2>
+        <br>
+        <div class="farm">
+            <div class="slideshow-container">
+                <div class="mySlideDiv fade active">
+                   <img src="/About_Us_imgs/banner1_토토네닭장.jpg">
+                </div>
+                <div class="mySlideDiv fade">
+                    <img src="/About_Us_imgs/banner2.jpg">
+                </div>
+                <div class="mySlideDiv fade">
+                    <img src="/About_Us_imgs/banner3.jpg">
+                </div>
+                <a class="prev" onclick="prevSlide()">&#10094;</a>
+                <a class="next" onclick="nextSlide()">&#10095;</a>  
+           </div>
+            <p style="line-height: 30px;"><b>토토네닭장에는 닭, 오골계, 기러기가 살아요. 새들은 햇살이 따사롭게 비치는 점심때 쯤에 산책을 나가 날개짓하고, 흙목욕을 하고, 일광욕도 한답니다.
+                자유롭고 행복한 새들이 낳는 알에선 세상살이의 쓴맛이 배어들 틈이 없답니다.</b>
+            </p>
+        </div>
+        <hr>
+        <h2 style="background-color: rgb(246, 246, 135); display: inline-block;"><b><i><ins>About Mascot Chickens</ins></i></b></h2>
+        <br><br>
+        <div class="toto">
+            <img src="/About_Us_imgs/Toto.jpg">
+            <h3 style="background-color: rgb(194, 217, 236); display: inline;">토토</h3>
+            <p><b>&nbsp;&nbsp;토토네닭장의 대장닭 '토토'입니다. 토종닭인줄 알고 토토라고 지었는데 알고보니 아니었어요. 어릴적엔 새로운 음식을 보면 다른 닭들에게 먼저 먹여보고 안전한 걸 확인한 후에야 자신이 먹는 다소 찌질한 모습을 보여주었으나 지금은 맛있는 것을 무리에게 양보하는 등 어엿한 대장으로 성장했어요.</b></p>
+        </div>
+        <br><br>
+        <div class="cheongsun">
+            <img src="/About_Us_imgs/Cheongsun.jpg">
+            <h3 style="background-color: rgb(194, 217, 236); display: inline;">청순이</h3>
+            <p><b>&nbsp;&nbsp;토토네닭장의 두 번째 마스코트 '청순이'입니다. 청계인줄 알고 청순이라고 지었는데 알고보니 아니었어요. 천성이 순하기도 하고 어렸을 때부터 만져가며 키워서 그런지 들어올리거나 쓰다듬어도 얌전하답니다.</b></p>
+        </div>
+        <br><br>
+        <div class="esmeralda">
+            <img src="/About_Us_imgs/Esmeralda.jpg">
+            <h3 style="background-color: rgb(194, 217, 236); display: inline;">에스메랄다</h3>
+            <p><b>&nbsp;&nbsp;세 번째 마스코트 '에스메랄다'입니다. 단순히 예쁘게 생겨서 지은 이름입니다. 까칠하고 예민한 성격의 소유자로 자기가 정해놓은 자리가 아니면 절대 알을 낳지 않아요. 그 자리에 누군가 들어앉아 있으면 어떻게든 쫓아내고 자리를 차지한답니다.</b></p>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <hr>
+    <div class="footer">
+        <button id="toggleBtn">농장 세부정보</button>
+        <div class="information">
+            상점명 | (주)토토네닭장&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 | 7777-7777
+            <br>
+            주소 | 강원도 원주시 귀래면
+            <br>
+            사업자등록번호 | 123-45-67890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;통신판매업 신고 | 2023-원주시-7777
+            <br>
+            대표 | 이기섭
+        </div>
+    </div>
+</body>
+</html>

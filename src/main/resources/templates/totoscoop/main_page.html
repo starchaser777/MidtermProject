@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        setInterval(function () {
+            $("#blink_obj").toggle();
+        }, 400);
+
+        $(document).ready(function () {
+            $("#toggleBtn").click(function () {
+                $(".information").slideToggle();
+            });
+        });
+
+        $(document).ready(function () {
+            $(".nav_list").hover(
+                function () {
+                    $(this).find(".dropdown_content").slideDown(200);
+                },
+                function () {
+                    $(this).find(".dropdown_content").slideUp(200);
+                }
+            );
+        });
+    </script>
+    <style>
+        body {
+            margin: 0 auto; width: 800px;
+        }
+
+        /* header */
+        .header {
+            width: 800px; height: 175px;
+        }
+        .header div.top_menu {
+            text-align: right;
+            margin: 5px 0;
+        }
+        .header div.top_menu a {
+            text-decoration: none;
+            color: black;
+        }
+        .header div.top_menu a:hover {
+            color: rgb(0, 169, 0);
+        }
+        .header div.title {
+            width: 800px;
+            height: 150px;
+        }
+
+        /* nav */
+        .nav {
+            height: 40px;
+            border-radius: 10px;
+            background: #28b025;
+            background: linear-gradient(270deg,#28b025 0%, #238623 80%);
+            background: -webkit-linear-gradient(270deg,#28b025 0%, #238623 80%);
+            background: -moz-linear-gradient(270deg,#28b025 0%, #238623 80%);
+        }
+        .nav_list {
+            list-style: none;
+            color: white;
+            float: left;
+            line-height: 40px;
+            vertical-align: middle;
+            text-align: center;
+            display: inline-block;
+            margin: 0 6px;
+        }
+
+        .nav_list:hover .dropdown_content {
+            display: block;
+        }
+
+        .nav_menu {
+            position: relative;
+        }
+
+        .dropdown_content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100px;
+            padding: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            line-height: 1.5;
+        }
+
+        .nav_menu a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            width: 120px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .nav_menu a:hover {
+            color: blue;
+        }
+
+        .dropdown_content_text {
+            color: darkolivegreen;
+            font-size: 11px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        /* main */
+        .main {
+            height: 540px;
+        }
+        .main div.box1 {
+            float: left;
+            width: 255px; height: 300px;
+            margin: 10px;
+            overflow: hidden;
+        }
+        .main div.box2 {
+            display: inline-block;
+            border: 2px dotted black;
+            border-radius: 50% 50% 45% 45%;
+            width: 250px; height: 300px;
+            margin: 5px;
+            overflow: hidden;
+        }
+        .main div.box3 {
+            float: right;
+            width: 235px; height: 520px;
+            border: 1px solid black;
+            margin: 10px;
+            text-align: right;
+            overflow: hidden;
+        }
+        .main div.box4 {
+            display: inline-block;
+            width: 255px; height: 200px;
+            margin: 10px;
+            overflow: hidden;
+        }
+        .main div.box5 {
+            display: inline-block;
+            width: 230px; height: 200px;
+            border: 1px solid black;
+            margin: 10px;
+            overflow: hidden;
+        }
+
+        /* footer */
+        #toggleBtn {
+            display: inline-block;
+            margin-left: 350px;
+            background: rgb(0, 94, 0);
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        #toggleBtn:hover {
+            background: rgb(0, 94, 0);
+            color: white;
+            border: 2px solid rgb(0, 0, 0);
+        }
+        .footer .information {
+            display: none;
+            height: 80px;
+            line-height: 20px;
+            border-radius: 10px;
+            background: #28b025;
+            background: linear-gradient(270deg,#28b025 0%, #238623 80%);
+            background: -webkit-linear-gradient(270deg,#28b025 0%, #238623 80%);
+            background: -moz-linear-gradient(270deg,#28b025 0%, #238623 80%);
+            color: black;
+            padding: 10px;
+        }
+        .footer div.information {
+            text-align: center;
+            font-size: 13px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="top_menu">
+            <a href="registration">회원가입</a> | <a href="login">로그인</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
+        </div>
+        <div class="title">
+            <a href="main_page"><img src="/Logo&Menu_imgs/logo.jpg"></a>
+            <a href="main_page"><img src="/Logo&Menu_imgs/title.jpg"></a>
+        </div>
+    </div>
+
+    <!-- nav -->
+    <div class="nav">
+        <ul class="nav_menu">
+            <li class="nav_list">
+                <a href="about_us">About us</a>
+                <div class="dropdown_content">
+                    <p class="dropdown_content_text">농장 & 마스코트 닭 소개</p>
+                </div>
+            </li>
+            <li class="nav_list"> | </li>
+            <li class="nav_list">
+                <a href="list">공지사항</a>
+                <div class="dropdown_content">
+                    <p class="dropdown_content_text">공지사항</p>
+                </div>
+            </li>
+            <li class="nav_list"> | </li>
+            <li class="nav_list">
+                <a href="shop">SHOP</a>
+                <div class="dropdown_content">
+                    <p class="dropdown_content_text">온라인 쇼핑몰</p>
+                </div>
+            </li>
+            <li class="nav_list"> | </li>
+            <li class="nav_list">
+                <a href="#">달걀 정기구독</a>
+                <div class="dropdown_content">
+                    <p class="dropdown_content_text">달걀 정기배달<br>서비스</p>
+                </div>
+            </li>
+            <li class="nav_list"> | </li>
+            <li class="nav_list">
+                <a href="contact">Contact</a>
+                <div class="dropdown_content">
+                    <p class="dropdown_content_text">연락처 & 오시는 길</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <hr>
+
+    <!-- main -->
+    <div class="main">
+        <a href="about_us"><div class="box1"><img src="/Logo&Menu_imgs/about_us.jpg"></div></a>
+        <a href="shop"><div class="box2"><img id="blink_obj" src="/Logo&Menu_imgs/shop.jpg"></div></a>
+        <a href="#"><div class="box3"><img src="/Logo&Menu_imgs/eggs_subscribe.jpg"></div></a>
+        <a href="list"><div class="box4"><img src="/Logo&Menu_imgs/announcement.jpg"></div></a>
+        <a href="contact"><div class="box5"><img src="/Logo&Menu_imgs/contact.jpg"></div></a>
+    </div>
+
+    <!-- footer -->
+    <hr>
+    <div class="footer">
+        <button id="toggleBtn">농장 세부정보</button>
+        <div class="information">
+            상점명 | (주)토토네닭장&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 | 7777-7777
+            <br>
+            주소 | 강원도 원주시
+            <br>
+            사업자등록번호 | 123-45-67890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;통신판매업 신고 | 2024-원주시-7777
+            <br>
+            대표 | 이기석
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#toggleBtn").click(function () {
+                $(".information").slideToggle();
+            });
+        });
+    </script>
+    <style>
+        body {
+            margin: 0 auto; width: 800px;
+        }
+
+        /* header */
+        .header {
+            width: 800px; height: 175px;
+        }
+        .header div.top_menu {
+            text-align: right;
+            margin: 5px 0;
+        }
+        .header div.top_menu a {
+            text-decoration: none;
+            color: black;
+        }
+        .header div.top_menu a:hover {
+            color: rgb(0, 169, 0);
+        }
+        .header div.title {
+            width: 800px;
+            height: 150px;
+        }
+
+        /* main */
+        #main {
+            height: 1100px;
+        }
+
+        #main .list ul {
+            text-align: center;
+            list-style: none;
+        }
+        #main .list ul li {
+            display: inline;
+            margin-right: 30px;
+        }
+        #main .list ul li a {
+            text-decoration: none;
+            color: black;
+        }
+        #main .list ul li a:hover {
+            color: rgb(0, 169, 0);
+        }
+
+        #main .item_list {
+            width: 800px; height: 900px;
+        }
+        #main .item_list .card {
+            width: 220px; height: 400px;
+            border: 1 solid #eee;
+            padding: 5px; margin: 15px;
+            text-align: center;
+            display: inline-block;
+        }
+        .card h2 a{
+            text-decoration: none;
+            color: black;
+        }
+        #main .item_list .card img {
+            width: 210px; height: 250px;
+        }
+        #main .item_list .card .text p {
+            font-size: 15px;
+        }
+        #main .item_list .card .text button {
+            background: rgb(0, 169, 0);
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 10px;
+        }
+        #main .item_list .card .text button:hover {
+            background: rgb(0, 169, 0);
+            color: white;
+            border: 2px solid rgb(0, 169, 0);
+        }
+        .page_number {
+            text-align: center;
+        }
+        .page_number a {
+            text-decoration: none;
+            color: black;
+        }
+        .page_number a:hover {
+            color: rgb(0, 169, 0);
+        }
+
+        /* footer */
+        #toggleBtn {
+            display: inline-block;
+            margin-left: 350px;
+            background: rgb(0, 94, 0);
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        #toggleBtn:hover {
+            background: rgb(0, 94, 0);
+            color: white;
+            border: 2px solid rgb(0, 0, 0);
+        }
+        .footer .information {
+            display: none;
+            height: 80px;
+            line-height: 20px;
+            border-radius: 10px;
+            background: #28b025;
+            background: linear-gradient(270deg,#28b025 0%, #238623 80%);
+            background: -webkit-linear-gradient(270deg,#28b025 0%, #238623 80%);
+            background: -moz-linear-gradient(270deg,#28b025 0%, #238623 80%);
+            color: black;
+            padding: 10px;
+        }
+        .footer div.information {
+            text-align: center;
+            font-size: 13px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="top_menu">
+            <a href="registration">회원가입</a> | <a href="login">로그인</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
+        </div>
+        <div class="title">
+            <a href="main_page"><img src="/Logo&Menu_imgs/logo.jpg"></a>
+            <a href="main_page"><img src="/Logo&Menu_imgs/title.jpg"></a>
+        </div>
+    </div>
+    <hr>
+
+    <!-- main -->
+    <main id="main">
+        <div class="list">
+            <h2 style="text-align: center;">EGGS</h2>
+            <hr>
+            <h3 style="text-align: center;">MENU</h3>
+            <ul>
+                <li><a href="#">전체</a></li>
+                <li><a href="#">청계알</a></li>
+                <li><a href="#">오골계알</a></li>
+                <li><a href="#">기러기알</a></li>
+            </ul>
+        </div>
+        <div class="item_list">
+            <div class="card">
+                <div class="img">
+                    <a href="#"><img src="/Shop_Product_imgs/청계알15.jpg"></a>
+                </div>
+                <div class="text">
+                    <h2><a href="#">청계알 15구</a></h2>
+                    <p>신선한 청계알 15구</p>
+                    <button>바로구매</button><button>장바구니</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <a href="#"><img src="/Shop_Product_imgs/청계알30.jpg"></a>
+                </div>
+                <div class="text">
+                    <h2><a href="#">청계알 30구</a></h2>
+                    <p>신선한 청계알 30구</p>
+                    <button>바로구매</button><button>장바구니</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <a href="#"><img src="/Shop_Product_imgs/오골계알15.jpg"></a>
+                </div>
+                <div class="text">
+                    <h2><a href="#">오골계알 15구</a></h2>
+                    <p>신선한 오골계알 15구</p>
+                    <button>바로구매</button><button>장바구니</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <a href="#"><img src="/Shop_Product_imgs/오골계알30.jpg"></a>
+                </div>
+                <div class="text">
+                    <h2><a href="#">오골계알 30구</a></h2>
+                    <p>신선한 오골계알 30구</p>
+                    <button>바로구매</button><button>장바구니</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <a href="#"><img src="/Shop_Product_imgs/기러기알15.jpg"></a>
+                </div>
+                <div class="text">
+                    <h2><a href="#">기러기알 15구</a></h2>
+                    <p>신선한 기러기알 15구</p>
+                    <button>바로구매</button><button>장바구니</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <a href="#"><img src="/Shop_Product_imgs/기러기알30.jpg"></a>
+                </div>
+                <div class="text">
+                    <h2><a href="#">기러기알 30구</a></h2>
+                    <p>신선한 기러기알 30구</p>
+                    <button>바로구매</button><button>장바구니</button>
+                </div>
+            </div>
+        </div>
+        <div class="page_number">
+            <p><a href="#">1</a> | <a href="#">2</a> | <a href="#">3</a></p>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <hr>
+    <div class="footer">
+        <button id="toggleBtn">농장 세부정보</button>
+        <div class="information">
+            상점명 | (주)토토네닭장&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 | 7777-7777
+            <br>
+            주소 | 강원도 원주시 귀래면
+            <br>
+            사업자등록번호 | 123-45-67890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;통신판매업 신고 | 2023-원주시-7777
+            <br>
+            대표 | 이기섭
+        </div>
+    </div>
+</body>
+</html>
