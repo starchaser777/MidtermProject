@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = "board") // 외부에 있는 것을 참조함
+@ToString(exclude = "cBoard") // 외부에 있는 것을 참조함
 public class Reply extends BaseEntity{
 
     @Id

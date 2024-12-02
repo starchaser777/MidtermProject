@@ -33,10 +33,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests((auth) -> {
-            // /sample/all 은 아무나 다 접근할 수 있도록
-            auth.requestMatchers("/css/**", "/js/**", "/About_Us_imgs/**", "/Logo&Menu_imgs/**", "/Shop_Product_imgs/**", "/totoscoop/main_page", "/totoscoop/about_us", "/totoscoop/shop", "/totoscoop/contact", "/totoscoop/login", "/totoscoop/registration").permitAll();
-            auth.requestMatchers("/board/list","/board/read","/community/list","/community/read","/community/modify","/community/delete").hasRole("USER");
-            auth.requestMatchers("/board/modify", "/board/delete").hasRole("MANAGER");
+            auth.requestMatchers("/css/**", "/js/**", "/About_Us_imgs/**", "/Logo&Menu_imgs/**", "/Shop_Product_imgs/**",
+                    "/totoscoop/main_page", "/totoscoop/about_us", "/totoscoop/shop", "/totoscoop/contact", "/totoscoop/login", "/totoscoop/registration").permitAll();
+            auth.requestMatchers("/board/list","/board/read","/community/list","/community/read","/community/register" ,"/community/modify","/community/delete", "/replies/**").hasRole("USER");
+            auth.requestMatchers("/board/modify", "/board/delete", "board/register").hasRole("MANAGER");
         });
 
         httpSecurity.formLogin((formLogin) -> formLogin
