@@ -6,7 +6,7 @@
     <th:block th:fragment="content">
 
         <h1 class="mt-4">글 수정</h1>
-        <form action="/totoscoop/modify" method="post">
+        <form action="/board/modify" method="post">
             <!-- 페이지 번호 -->
             <input type="hidden" name="page" th:value="${requestDTO.page}">
             <input type="hidden" name="type" th:value="${requestDTO.type}">
@@ -50,14 +50,14 @@
     let actionForm = $("form");
     $(".removeBtn").click(function() {
         actionForm
-            .attr("action", "/totoscoop/remove")
+            .attr("action", "/board/remove")
             .attr("method", "post")
             .submit();
     });
 
     $(".modifyBtn").click(function() {
         actionForm
-            .attr("action", "/totoscoop/modify")
+            .attr("action", "/board/modify")
             .attr("method", "post")
             .submit();
     })
@@ -74,7 +74,7 @@
         actionForm.append(keyword);
 
         actionForm
-            .attr("action", "/totoscoop/list")
+            .attr("action", "/board/list")
             .attr("method", "get")
             .submit();
     })

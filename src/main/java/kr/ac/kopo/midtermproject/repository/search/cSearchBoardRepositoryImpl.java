@@ -7,10 +7,7 @@ import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.PathBuilder;
 import com.querydsl.jpa.JPQLQuery;
-import kr.ac.kopo.midtermproject.entity.Board;
-import kr.ac.kopo.midtermproject.entity.QBoard;
-import kr.ac.kopo.midtermproject.entity.QMember;
-import kr.ac.kopo.midtermproject.entity.cBoard;
+import kr.ac.kopo.midtermproject.entity.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -22,46 +19,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Log4j2
-public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport implements SearchBoardRepository {
-    public SearchBoardRepositoryImpl() {
-        super(Board.class);
-    }
-
-    @Override
-    public cBoard search1() {
-        log.info("search1() 메소드 호출됨");
-        QBoard board = QBoard.board;
-        QMember member = QMember.member;
-
-        JPQLQuery<Board> jpqlQuery = from(board);
-        jpqlQuery.leftJoin(member).on(board.writer.eq(member));
-
-        JPQLQuery<Tuple> tuple = jpqlQuery.select(board, member.email);
-        tuple.groupBy(board, member);
-
-        log.info("==============================");
-        log.info(tuple);
-        log.info("==============================");
-
-        List<Tuple> result = tuple.fetch();
-
-        log.info("==============================");
-        log.info(result);
-        log.info("==============================");
-
-        return null;
+public class cSearchBoardRepositoryImpl extends QuerydslRepositorySupport implements cSearchBoardRepository {
+    public cSearchBoardRepositoryImpl() {
+        super(cBoard.class);
     }
 
     @Override
     public Page<Object[]> searchPage(String type, String keyword, Pageable pageable) {
         log.info("searchPage() 메소드 호출됨");
-        QBoard board = QBoard.board;
+        QcBoard board = QcBoard.cBoard;
+        QReply reply = QReply.reply;
         QMember member = QMember.member;
 
-        JPQLQuery<Board> jpqlQuery = from(board);
+        JPQLQuery<cBoard> jpqlQuery = from(board);
         jpqlQuery.leftJoin(member).on(board.writer.eq(member));
+        jpqlQuery.leftJoin(reply).on(reply.board.eq(board));
 
-        JPQLQuery<Tuple> tuple = jpqlQuery.select(board, member);
+        JPQLQuery<Tuple> tuple = jpqlQuery.select(board, member, reply.count());
 
         BooleanBuilder booleanBuilder = new BooleanBuilder();
         BooleanExpression expression = board.bno.gt(0L);
@@ -95,7 +69,7 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
             Order direction = order.isAscending()? Order.ASC:Order.DESC;
             String prop = order.getProperty();
 
-            PathBuilder orderByExpression = new PathBuilder(Board.class, "board");
+            PathBuilder orderByExpression = new PathBuilder(cBoard.class, "cBoard");
 
             tuple.orderBy(new OrderSpecifier(direction, orderByExpression.get(prop)));
         });

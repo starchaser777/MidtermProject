@@ -97,7 +97,7 @@
     <!-- header -->
     <div class="header">
         <div class="top_menu">
-            <a href="registration">회원가입</a> | <a href="login">로그인</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
+            <a href="registration">회원가입</a> | <a sec:authorize="isAnonymous()" th:href="@{/totoscoop/login}">로그인</a> <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
         </div>
         <div class="title">
             <a href="main_page"><img src="/Logo&Menu_imgs/logo.jpg"></a>

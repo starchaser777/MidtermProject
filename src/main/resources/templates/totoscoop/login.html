@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -123,7 +123,7 @@
     <!-- header -->
     <div class="header">
         <div class="top_menu">
-            <a href="registration">회원가입</a> | <a href="login">로그인</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
+            <a href="registration">회원가입</a> | <a sec:authorize="isAnonymous()" th:href="@{/totoscoop/login}">로그인</a> <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
         </div>
         <div class="title">
             <a href="main_page"><img src="/Logo&Menu_imgs/logo.jpg"></a>
@@ -137,7 +137,7 @@
         <div class="login_page">
             <hr>
             <h2 style="text-align: center;">MEMBER LOGIN</h2>
-            <form>
+            <form action="/loginProcess" method="post">
                 <div><input type="submit" id="login" value="Login"></div>
                 <div><input type="text" id="username" name="username" required placeholder="ID"></div>
                 <div><input type="password" id="password" name="password" required placeholder="PASSWORD"></div>

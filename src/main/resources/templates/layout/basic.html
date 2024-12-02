@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <th:block th:fragment="setContent(content)">
     <head>
         <meta charset="utf-8" />
@@ -16,11 +16,11 @@
         <!-- header -->
         <div class="header">
             <div class="top_menu">
-                <a href="registration">회원가입</a> | <a href="login">로그인</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
+                <a href="../totoscoop/registration">회원가입</a> | <a sec:authorize="isAnonymous()" th:href="@{/totoscoop/login}">로그인</a> <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
             </div>
             <div class="title">
-                <a href="main_page"><img src="/Logo&Menu_imgs/logo.jpg"></a>
-                <a href="main_page"><img src="/Logo&Menu_imgs/title.jpg"></a>
+                <a href="../totoscoop/main_page"><img src="/Logo&Menu_imgs/logo.jpg"></a>
+                <a href="../totoscoop/main_page"><img src="/Logo&Menu_imgs/title.jpg"></a>
             </div>
         </div>
         <div class="d-flex" id="wrapper">
@@ -28,11 +28,11 @@
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light">Menu</div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="about_us">About Us</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="list">공지사항</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="shop">SHOP</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">달걀 정기구독</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="contact">Contact</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../totoscoop/about_us">About Us</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../board/list">공지사항</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../totoscoop/shop">SHOP</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../community/list">커뮤니티</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../totoscoop/contact">Contact</a>
                 </div>
             </div>
             <!-- Page content wrapper-->

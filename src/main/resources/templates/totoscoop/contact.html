@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -145,7 +145,7 @@
     <!-- header -->
     <div class="header">
         <div class="top_menu">
-            <a href="registration">회원가입</a> | <a href="login">로그인</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
+            <a href="registration">회원가입</a> | <a sec:authorize="isAnonymous()" th:href="@{/totoscoop/login}">로그인</a> <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a> | <a href="#">마이페이지</a> | <a href="#">장바구니</a>
         </div>
         <div class="title">
             <a href="main_page"><img src="/Logo&Menu_imgs/logo.jpg"></a>
@@ -163,13 +163,13 @@
                 <li><a class="side_list" href="about_us">About us</a></li>
                 <br>
                 <hr>
-                <li><a class="side_list" href="list">공지사항</a></li>
+                <li><a class="side_list" href="../board/list">공지사항</a></li>
                 <br>
                 <hr>
                 <li><a class="side_list" href="shop">SHOP</a></li>
                 <br>
                 <hr>
-                <li><a class="side_list" href="#">달걀 정기구독</a></li>
+                <li><a class="side_list" href="../community/list">커뮤니티</a></li>
                 <br>
                 <hr>
                 <li><a class="side_list" href="contact">Contact</a></li>
