@@ -4,7 +4,6 @@ import kr.ac.kopo.midtermproject.dto.BoardDTO;
 import kr.ac.kopo.midtermproject.dto.PageRequestDTO;
 import kr.ac.kopo.midtermproject.service.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,5 +1,6 @@
 package kr.ac.kopo.midtermproject.config;
 
+import kr.ac.kopo.midtermproject.security.service.ClubUserDetailsService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +13,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @Log4j2
 public class SecurityConfig {
+
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(); // 패스워드 암호화하는 클래스
@@ -48,6 +50,8 @@ public class SecurityConfig {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
                 .logoutSuccessUrl("/totoscoop/main_page")
                 .invalidateHttpSession(true));
+        httpSecurity.exceptionHandling((exceptionHandling) -> exceptionHandling
+                .accessDeniedPage("/totoscoop/main_page"));
 
         return httpSecurity.build();
     }

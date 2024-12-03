@@ -42,12 +42,12 @@
             <div class="mt-4">
                 <h5>
                     <span class="badge result-item addReply">
-                        Add Reply
+                        댓글 작성
                     </span>
                 </h5>
                 <h5>
                     <span class="badge result-item replyCount">
-                        Reply Count [[${dto.replyCount}]]
+                        댓글 열기 [ [[${dto.replyCount}]]개 ]
                     </span>
                 </h5>
             </div>
@@ -63,25 +63,25 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal Title</h5>
+                    <h5 class="modal-title">댓글 작성 및 관리</h5>
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&nbsp;&nbsp;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <input class="form-control" type="text" name="replyText" placeholder="Input Reply Text ~">
+                        <input class="form-control" type="text" name="replyText" placeholder="내용을 입력하세요">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" name="replyer" placeholder="Input Replyer ~">
+                        <input class="form-control" type="text" name="replyer" placeholder="작성자명을 입력하세요">
                         <input type="hidden" name="rno">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger replyRemove">Remove</button>
-                    <button type="button" class="btn btn-info replyModify">Modify</button>
-                    <button type="button" class="btn btn-primary replySave">Save</button>
-                    <button type="button" class="btn btn-outline-secondary replyClose" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger replyRemove">삭제</button>
+                    <button type="button" class="btn btn-info replyModify">수정</button>
+                    <button type="button" class="btn btn-primary replySave">등록</button>
+                    <button type="button" class="btn btn-outline-secondary replyClose" data-dismiss="modal">닫기</button>
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@
                 $.getJSON('/replies/community/' + bno, function (arr) {
                     var htmlStr = "";
 
-                    $('.replyCount').html("Reply Count " + arr.length);
+                    $('.replyCount').html("댓글 목록 [ " + arr.length + "개 ]");
                     $.each(arr, function (idx, reply) {
                         htmlStr += '<div class="card-body" data-rno="'+ reply.rno +'"><b>' + reply.rno + '</b>';
                         htmlStr += '<h5 class="card-title">' + reply.text + '</h5>';
